@@ -676,4 +676,9 @@ NSUInteger DeviceSystemMajorVersion() {
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
+- (void)cancelTrackingWithEvent:(UIEvent *)event
+{
+    [self endTrackingWithTouch:nil withEvent:event];
+}
+
 @end
