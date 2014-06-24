@@ -676,6 +676,12 @@ NSUInteger DeviceSystemMajorVersion() {
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    // Prevent gesture recognizers attached to nearby views cancelling tracking.
+    return gestureRecognizer.view == self;
+}
+
 - (void)cancelTrackingWithEvent:(UIEvent *)event
 {
     [self endTrackingWithTouch:nil withEvent:event];
